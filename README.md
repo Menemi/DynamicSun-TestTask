@@ -33,3 +33,6 @@ ASP.Net Core MVC приложение для загрузки и отображ�
 
 ![страница загрузки](https://github.com/Menemi/DynamicSun-TestTask/blob/master/screenshots4readme/input.png)
 
+## Статистика [полное затраченное время на выполнение задания]
+
+![](https://wakatime.com/badge/user/a6708d99-2cec-49e2-9e87-ba4c67d1c9a3/project/018b4df9-e508-4dad-8f47-0fc87e13bb17.svg)
