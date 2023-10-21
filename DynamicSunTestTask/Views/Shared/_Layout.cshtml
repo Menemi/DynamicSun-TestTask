@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>DynamicSun TestTask</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap"
+            rel="stylesheet">
+    <link href="css/site.css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <nav>
+        <a class="nav-title" asp-area="" asp-controller="Home" asp-action="Index">DynamicSun TestTask</a>
+        <div class="nav-items-wrapper">
+            <a asp-area="" asp-controller="Home" asp-action="Index">Главная</a>
+            <a asp-area="" asp-controller="Weather" asp-action="Index">Просмотр архивов</a>
+            <a asp-area="" asp-controller="Weather" asp-action="Import">Загрузка архивов</a>
+        </div>
+    </nav>
+</header>
+<main>
+    @RenderBody()
+</main>
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

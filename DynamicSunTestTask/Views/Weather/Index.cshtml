@@ -1,0 +1,71 @@
+﻿@model List<DynamicSunTestTask.Models.Weather>
+@{
+    ViewData["Title"] = "Просмотр архивов";
+}
+
+<div class="view-archives-wrapper">
+    <h2>Введите месяц или год, по которым хотите посмотреть погоду</h2>
+
+    <div class="view-form-wrapper">
+        <form class="form-wrapper" method="get" asp-controller="Weather" asp-action="Index">
+            <div class="form-input-wrapper">
+                <div class="form-input-item">
+                    <label>Месяц</label>
+                    <input type="number" name="month"/>
+                </div>
+                <div class="form-input-item">
+                    <label>Год</label>
+                    <input type="number" name="year"/>
+                </div>
+            </div>
+            <button class="btn submit-btn" type="submit" name="Upload">Применить</button>
+        </form>
+    </div>
+
+    <table class="weather-table">
+        <thead>
+        <tr>
+            <td>Дата</td>
+            <td>Время</td>
+            <td>Температура воздуха</td>
+            <td>Отн. влажность</td>
+            <td>Точка росы</td>
+            <td>Атм. давление</td>
+            <td>Направление ветра</td>
+            <td>Скорость ветра</td>
+            <td>Облачность</td>
+            <td>Нижняя гр. облачности</td>
+            <td>Гор. видимость</td>
+            <td>Погодные явления</td>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                @{
+                    var day = item.Day.ToString();
+                    var month = item.Month.ToString();
+                    if (item.Day.ToString().Length == 1)
+                        day = $"0{item.Day}";
+                    if (item.Month.ToString().Length == 1)
+                        month = $"0{item.Month}";
+
+                    <td>@day.@month.@item.Year</td>
+                }
+                <td>@item.Time</td>
+                <td>@item.Temperature</td>
+                <td>@item.Rh</td>
+                <td>@item.Td</td>
+                <td>@item.AtmosphericPressure</td>
+                <td>@item.WindDirection</td>
+                <td>@item.WindSpeed</td>
+                <td>@item.CloudCover</td>
+                <td>@item.H</td>
+                <td>@item.Vv</td>
+                <td>@item.WeatherPhenomena</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
